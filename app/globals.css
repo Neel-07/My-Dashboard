@@ -22,3 +22,76 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+
+
+/* Apply default light background color */
+body {
+  background-color: #ffffff; 
+  color: #1a202c;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Apply dark background color when dark mode is enabled */
+.dark body {
+  background-color: #1a202c; 
+  color: #0e0e0e; 
+}
+
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+/* Slider Track */
+.slider {
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ddd; /* Light mode track */
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+/* Dark Mode Slider Track */
+.slider.dark {
+  background-color: #333; /* Dark mode track */
+}
+
+/* Slider Knob */
+.slider-knob {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 8%;
+  transition: transform 0.3s;
+}
+
+/* Light Mode Knob */
+.slider-knob.knob-light {
+  transform: translateX(0);
+}
+
+/* Dark Mode Knob */
+.slider-knob.knob-dark {
+  transform: translateX(30px);
+}
+
+/* Slider Label */
+.slider-label {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+/* Dark Mode Label */
+.dark .slider-label {
+  color: #f7fafc;
+}
