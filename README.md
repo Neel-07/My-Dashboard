@@ -1,6 +1,7 @@
 # My Dashboard
 
 ## Overview
+![Dashboard Screenshot](./public/overview.png)
 
 My Dashboard is a modern web application built with Next.js, TypeScript, and Tailwind CSS. It provides a dynamic and responsive dashboard with a sidebar for category selection, a search bar for filtering content, and a feature grid for displaying news articles. The application fetches news data from the Mediastack API and allows users to filter and view news articles based on selected categories.
 
@@ -64,3 +65,12 @@ My Dashboard is a modern web application built with Next.js, TypeScript, and Tai
 - **User Interaction:** The application assumes users will interact with the sidebar buttons and search bar to filter and search for news articles. Proper UX/UI design is assumed to guide users effectively.
 
 - **Performance:** It is assumed that the application handles a reasonable amount of data efficiently. For larger datasets, additional optimizations such as pagination or infinite scrolling may be necessary.
+
+
+## Contact
+
+Feel free to reach out to me through any of the following:
+
+- **Email:** [your.email@example.com](mailto:neelmishra9125@gmail.com)
+- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/neelmishra07/)
+- **Twitter:** [@your_twitter_handle](https://x.com/Neel_M7)
