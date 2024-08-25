@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Dashboard
 
-## Getting Started
+## Overview
 
-First, run the development server:
+My Dashboard is a modern web application built with Next.js, TypeScript, and Tailwind CSS. It provides a dynamic and responsive dashboard with a sidebar for category selection, a search bar for filtering content, and a feature grid for displaying news articles. The application fetches news data from the Mediastack API and allows users to filter and view news articles based on selected categories.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Dynamic Sidebar:** Allows users to select different categories to filter news articles.
+- **Search Functionality:** Enables users to search for specific news articles based on keywords.
+- **Feature Grid:** Displays news articles in a grid format, with support for filtering and searching.
+- **Responsive Design:** Ensures the application is usable across various devices and screen sizes.
+- **Progress Bar:** Displays a simple progress bar at the bottom of the sidebar.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setup Instructions
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Clone the Repository**
+   ``` git clone https://github.com/your-username/my-dashboard.git  ```
 
-## Learn More
+2. **Navigate to the Project Directory**
+   ``` cd my-dashboard ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Install dependencies**
+    Ensure you have node.js installed, then run:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ``` npm install ``` 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. **Configure Environment Variables**
+    Create a .env.local file in the root directory and add your Mediastack API key:
 
-## Deploy on Vercel
+    ``` MEDIASTACK_API_KEY=your_api_key_here ```  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Run the Development Server**
+    Start the development server with:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ``` npm run dev ```
+
+## Approach and Assumptions
+
+### Approach
+
+- **Component-Based Architecture:** Utilized React components to modularize the application and ensure reusability. Key components include:
+  - `Navbar`: Displays the main navigation.
+  - `Sidebar`: Contains buttons for filtering news articles by category.
+  - `SearchBar`: Allows users to search for news articles by keywords.
+  - `CategoriesDropdown`: Provides a dropdown menu for category selection.
+  - `FeatureCard`: Displays individual news articles.
+  - `FeatureGrid`: Arranges `FeatureCard` components in a grid layout.
+
+- **Client-Side State Management:** Used React's `useState` and `useEffect` hooks to manage the state of the selected category and search input. The `useEffect` hook is employed to fetch news articles from the API whenever the category or search term changes.
+
+- **Responsive Design:** Applied Tailwind CSS for styling, ensuring that the layout adapts to various screen sizes and devices. This includes a flexible grid layout for displaying news articles and a responsive sidebar.
+
+- **API Integration:** Integrated with the Mediastack API to fetch news articles. The `FeatureGrid` component retrieves and displays news based on the selected category. Error handling is included to manage API request failures.
+
+### Assumptions
+
+- **API Key Configuration:** It is assumed that the Mediastack API key is correctly configured in the `.env.local` file. The key must be valid for API requests to succeed.
+
+- **Browser Compatibility:** The application is designed to work in modern browsers with JavaScript enabled. It is assumed that users have a basic understanding of navigating web applications.
+
+- **Data Availability:** It is assumed that the Mediastack API provides data in the expected format and that the categories used for filtering are supported by the API.
+
+- **User Interaction:** The application assumes users will interact with the sidebar buttons and search bar to filter and search for news articles. Proper UX/UI design is assumed to guide users effectively.
+
+- **Performance:** It is assumed that the application handles a reasonable amount of data efficiently. For larger datasets, additional optimizations such as pagination or infinite scrolling may be necessary.
