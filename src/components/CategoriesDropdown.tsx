@@ -1,20 +1,30 @@
-"use client"; // This marks the component as a Client Component
+"use client";
 
 import React, { useState } from 'react';
 
-const CategoriesDropdown: React.FC = () => {
+interface CategoriesDropdownProps {
+  onSelectCategory: (category: string) => void;
+}
+
+const CategoriesDropdown: React.FC<CategoriesDropdownProps> = ({ onSelectCategory }) => {
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
+
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
+    onSelectCategory(category);
+  };
 
   return (
     <select
       value={selectedCategory}
-      onChange={(e) => setSelectedCategory(e.target.value)}
-      className="mt-10 ml-96  p-2 border border-gray-300 rounded w-48 md:w-56 lg:w-64"
+      onChange={handleCategoryChange}
+      className="mt-10 p-2 border border-gray-300 rounded"
     >
-      <option>All Categories</option>
-      <option>Business</option>
-      <option>Sports</option>
-      <option>Technology</option>
+      <option value="All Categories">All Categories</option>
+      <option value="Business">Business</option>
+      <option value="Sports">Sports</option>
+      <option value="Health and Wellness">Health and Wellness</option>
     </select>
   );
 };

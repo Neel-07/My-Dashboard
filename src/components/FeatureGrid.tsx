@@ -1,47 +1,34 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import FeatureCard from './FeatureCard';
+import axios from 'axios';
 
-interface Feature {
-  title: string;
-  label: string;
-  description: string;
-}
-
-const FeatureGrid: React.FC = () => {
-  const [features, setFeatures] = useState<Feature[]>([]);
+const FeatureGrid: React.FC<{ searchTerm: string; category: string; refresh: boolean }> = ({ searchTerm, category, refresh }) => {
+  const [features, setFeatures] = useState([]);
 
   useEffect(() => {
-    const fetchNews = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(
-          `http://api.mediastack.com/v1/news?access_key=a8f60e3db78dff865b628be2e975bb8e&languages=en&limit=6&sources=sports,business,general,entertainment,technology,science,health`
+        const response = await axios.get(`https://api.mediastack.com/v1/news?access_key=a8f60e3db78dff865b628be2e975bb8e&categories=business,sports,technology,health`);
+        const filteredData = response.data.data.filter(
+          (item: any) =>
+            item.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
+            (category === 'All Categories' || item.category.toLowerCase() === category.toLowerCase())
         );
-        const data = await response.json();
-        const articles = data.data.map((article: any) => ({
-          title: article.title,
-          label: article.source, // Source of the news as label
-          description: article.description,
-        }));
-        setFeatures(articles);
+        setFeatures(filteredData);
       } catch (error) {
-        console.error('Error fetching news:', error);
+        console.error('Error fetching data:', error);
       }
     };
 
-    fetchNews();
-  }, []);
+    fetchData();
+  }, [searchTerm, category, refresh]);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-full">
-      {features.map((feature, index) => (
-        <FeatureCard 
-          key={index} 
-          title={feature.title} 
-          label={feature.label} 
-          description={feature.description} 
-        />
+      {features.map((feature: any) => (
+        <FeatureCard key={feature.id} title={feature.title} label={feature.category} description={feature.description} />
       ))}
     </div>
   );
