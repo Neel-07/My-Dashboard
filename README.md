@@ -71,6 +71,6 @@ My Dashboard is a modern web application built with Next.js, TypeScript, and Tai
 
 Feel free to reach out to me through any of the following:
 
-- **Email:** [your.email@example.com](mailto:neelmishra9125@gmail.com)
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/neelmishra07/)
-- **Twitter:** [@your_twitter_handle](https://x.com/Neel_M7)
+- **Email:** [Email ID-Neel Mishra](mailto:neelmishra9125@gmail.com)
+- **LinkedIn:** [LinkedIn Profile - Neel Mishra](https://www.linkedin.com/in/neelmishra07/)
+- **Twitter:** [Twitter Profile (Neel)](https://x.com/Neel_M7)
