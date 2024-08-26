@@ -55,7 +55,7 @@ export default function RootLayout({
               sidebarOpen ? "ml-64" : ""
             }`}
           >
-            <div className="flex justify-between items-center mb-4 sm-max:flex-col">
+            <div className="flex justify-between items-center mb-4 max-[420px]:flex-col">
               <SearchBar onSearch={handleSearch} />
               <CategoriesDropdown onSelectCategory={handleCategoryChange} />
             </div>

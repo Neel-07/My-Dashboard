@@ -20,7 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       value={searchTerm}
       onChange={handleSearch}
       placeholder="Search by title..."
-      className=" mt-10 p-2 border border-gray-300 rounded "
+      className=" mt-10 p-2 w-[45%] border border-gray-300 rounded "
     />
   );
 };
