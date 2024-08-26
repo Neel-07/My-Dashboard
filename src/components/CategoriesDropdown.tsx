@@ -19,7 +19,7 @@ const CategoriesDropdown: React.FC<CategoriesDropdownProps> = ({ onSelectCategor
     <select
       value={selectedCategory}
       onChange={handleCategoryChange}
-      className="mt-10 ml-auto p-2 border border-gray-300 rounded"
+      className="mt-10 ml-auto p-2 border border-gray-300 rounded sm-max:ml-0 mb-4"
     >
       <option value="All Categories">All Categories</option>
       <option value="Business">Business</option>

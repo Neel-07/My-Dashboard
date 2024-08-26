@@ -17,11 +17,11 @@ const DarkModeToggle = () => {
   };
 
   return (
-    <div className="slider-container ml-auto" onClick={toggleDarkMode}>
+    <div className="slider-container ml-auto sm-max:ml-8 " onClick={toggleDarkMode}>
       <div className={`slider ${isDarkMode ? 'dark' : 'light'}`}>
         <span className={`slider-knob ${isDarkMode ? 'knob-dark' : 'knob-light'}`}></span>
       </div>
-      <span className="slider-label">
+      <span className="slider-label sm-max:hidden">
         {isDarkMode ? 'Light Mode' : 'Dark Mode'}
       </span>
     </div>

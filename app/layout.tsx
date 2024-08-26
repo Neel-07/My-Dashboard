@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 'use client'; // Ensure this line is at the top
 
 import './globals.css';
@@ -9,8 +8,6 @@ import CategoriesDropdown from '@/components/CategoriesDropdown';
 import FeatureGrid from '@/components/FeatureGrid';
 import { useState } from 'react';
 
-
-
 export default function RootLayout({
   children,
 }: {
@@ -19,6 +16,7 @@ export default function RootLayout({
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('All Categories');
   const [refresh, setRefresh] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false); // State for sidebar visibility
 
   const handleSearch = (searchTerm: string) => {
     setSearchTerm(searchTerm);
@@ -32,14 +30,22 @@ export default function RootLayout({
     setCategory(selectedCategory);
   };
 
+  const handleHamburgerClick = () => {
+    setSidebarOpen(!sidebarOpen); // Toggle sidebar visibility
+  };
+
+  const handleSidebarClose = () => {
+    setSidebarOpen(false); // Close sidebar
+  };
+
   return (
     <html lang="en" className="h-full">
-      <body className="h-full flex flex-col mb-10">
-        <Navbar />
-        <div className="flex flex-1">
-          <Sidebar onRefresh={handleRefresh} />
-          <main className="w-full h-full flex-1 p-4 flex flex-col">
-            <div className="flex justify-between items-center mb-4">
+      <body className="h-full flex flex-col overflow-x-hidden"> {/* Updated to prevent overflow */}
+        <Navbar onHamburgerClick={handleHamburgerClick} />
+        <div className="flex flex-1 relative">
+          <Sidebar isOpen={sidebarOpen} onClose={handleSidebarClose} onRefresh={handleRefresh} />
+          <main className={`w-full h-full flex-1 p-4 flex flex-col transition-all duration-300 ease-in-out ${sidebarOpen ? 'ml-64' : ''}`}>
+            <div className="flex justify-between items-center mb-4 sm-max:flex-col ">
               <SearchBar onSearch={handleSearch} />
               <CategoriesDropdown onSelectCategory={handleCategoryChange} />
             </div>
