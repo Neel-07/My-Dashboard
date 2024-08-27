@@ -10,7 +10,7 @@ const FeatureGrid: React.FC<{ searchTerm: string; category: string; refresh: boo
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://api.mediastack.com/v1/news?access_key=a8f60e3db78dff865b628be2e975bb8e&categories=business,sports,technology,health`);
+        const response = await axios.get(`https://api.mediastack.com/v1/news?access_key=56405beae629fe3d3bb0f2d3514de417&categories=business,sports,technology,health`);
         const filteredData = response.data.data.filter(
           (item: any) =>
             item.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
